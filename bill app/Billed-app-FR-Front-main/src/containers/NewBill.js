@@ -18,13 +18,35 @@ export default class NewBill {
   handleChangeFile = e => {
     e.preventDefault()
     const file = this.document.querySelector(`input[data-testid="file"]`).files[0]
+/** */
+
+    const fileExtension = file.name.match(/\.[0-9a-z]+$/i)[0];
+    const authorizedImages = [".png", ".jpg", ".jpeg"];
+    const errorMessage = document.querySelector(
+      '[data-testid="file-error-message"]'
+    ); 
+    
+/** */
     const filePath = e.target.value.split(/\\/g)
     const fileName = filePath[filePath.length-1]
     const formData = new FormData()
     const email = JSON.parse(localStorage.getItem("user")).email
     formData.append('file', file)
     formData.append('email', email)
+/** */
 
+    if (authorizedImages.includes(fileExtension)) {
+      // hide the error message
+      errorMessage.classList.remove("show");
+      errorMessage.textContent = "";
+    }
+    else {
+      errorMessage.classList.add("show");
+      errorMessage.textContent = "Format non supporté";
+
+    }
+
+/** */    
     this.store
       .bills()
       .create({
