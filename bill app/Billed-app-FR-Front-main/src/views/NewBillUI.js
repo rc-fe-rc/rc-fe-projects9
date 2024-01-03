@@ -56,7 +56,6 @@ export default () => {
                   <div class="col-half">
                     <label for="file" class="bold-label">Justificatif</label>
                     <input required type="file" class="form-control blue-border" data-testid="file" />
-                    <p class="error-message" data-testid="file-error-message"></p>
                   </div>
                 </div>
             </div>
@@ -73,4 +72,3 @@ export default () => {
     </div>
   `)
 }
-// handleChangeFile = e => { NewBill.js<p class="error-message" data-testid="file-error-message"></p>

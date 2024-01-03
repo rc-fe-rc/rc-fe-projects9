@@ -1,6 +1,6 @@
 //j'ai remplace require par NodeRequire la suppression de type:module dans package.json ne donne rien
-//l'installation d'axios cote back et cote front n'a rien change
-const { Bill } = NodeRequire('../models');
+//l'installation d'axios cote back et cote front n'a rien
+const { Bill } = require('../models');
 
 const getFileURL = (filePath) => `http://localhost:5678/${filePath}`;
 
